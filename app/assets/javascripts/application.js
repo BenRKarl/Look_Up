@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require latAndLong
+//= require dateTime
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
