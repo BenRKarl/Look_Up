@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>Look Up!</title>
+
+  <script type="text/template" class="planet-template">
+    <strong><%%- name %></strong> is visible from <%%- rise %> - <%%- set %> today.
+  </script>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-  <script type="text/template" class="planet-template">
-    <strong><%- name %>: </strong><%- transit %>
-  </script>
 
 </head>
 <body>

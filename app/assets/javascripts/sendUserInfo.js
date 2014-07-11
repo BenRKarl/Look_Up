@@ -1,4 +1,4 @@
-navigator.geolocation.formattedLatLong = function(){
+navigator.geolocation.sendUserInfo = function(){
   var options = {
     enableHighAccuracy: true,
   };
@@ -24,21 +24,7 @@ navigator.geolocation.formattedLatLong = function(){
     var date = rightNow.formattedDate();
     var time = rightNow.formattedTime();
     var tz = rightNow.getTimezoneOffset() / -60;
-    $.ajax({
-      url: '/astronomy',
-      dataType: 'json',
-      method: 'post',
-      data: {
-              date: date,
-              time: time,
-              lat: lat,
-              lng: lng,
-              tz: tz
-            },
-      success: function(response){
-        console.log(response.data)
-      }
-    });
+    getPlanets(date, time, lat, lng, tz);
   };
   return this.getCurrentPosition(success, error, options);
 }

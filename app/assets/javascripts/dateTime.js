@@ -1,6 +1,6 @@
 Date.prototype.formattedDate = function(){
   var dd   = (this.getDate() < 10 ? "0" : "") + this.getDate();
-  var mm   = (this.getMonth() + 1 < 10 ? "0" : "") + this.getMonth();
+  var mm   = (this.getMonth() + 1 < 10 ? "0" : "") + (this.getMonth() + 1);
   var yyyy = this.getFullYear();
   return yyyy + '/' + mm + '/' + dd;
 }

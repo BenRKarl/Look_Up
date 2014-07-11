@@ -14,10 +14,11 @@
 //= require libraries/underscore
 //= require libraries/backbone
 //= require backbone/models/planet
-//= require backbone/collections/planetColletcion
-//= require backbone/views/planetView
-//= require backbone/views/planetListView
-//= require latAndLong
+//= require backbone/collections/planetCollection
+//= require backbone/views/planets/planetView
+//= require backbone/views/planets/planetListView
+//= require planetData
+//= require sendUserInfo
 //= require dateTime
 //= require jquery_ujs
 //= require turbolinks
