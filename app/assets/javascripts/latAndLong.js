@@ -35,8 +35,8 @@ navigator.geolocation.formattedLatLong = function(){
               lng: lng,
               tz: tz
             },
-      success: function(data){
-        console.log(data)
+      success: function(response){
+        console.log(response.data)
       }
     });
   };
