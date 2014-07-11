@@ -11,6 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require libraries/underscore
+//= require libraries/backbone
+//= require backbone/models/planet
+//= require backbone/collections/planetColletcion
+//= require backbone/views/planetView
+//= require backbone/views/planetListView
 //= require latAndLong
 //= require dateTime
 //= require jquery_ujs
