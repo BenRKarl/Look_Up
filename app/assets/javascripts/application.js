@@ -13,6 +13,8 @@
 //= require jquery
 //= require libraries/underscore
 //= require libraries/backbone
+//= require libraries/d3.min
+//= require libraries/topojson.v1.min
 //= require backbone/models/planet
 //= require backbone/collections/planetCollection
 //= require backbone/views/planets/planetView
@@ -20,9 +22,8 @@
 //= require planetData
 //= require sendUserInfo
 //= require dateTime
-//= require d3.min
-//= require topojson.v1.min
 //= require mapScripts
+//= require calcAltAndAz
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
