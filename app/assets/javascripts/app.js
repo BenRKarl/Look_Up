@@ -8,8 +8,11 @@ $(function(){
     collection: thePlanets
   });
 
+  navigator.geolocation.sendUserInfo();
+  console.log('A request was sent to the API')
+
   setInterval(function(){
     navigator.geolocation.sendUserInfo();
-    console.log('Planet data was extracted')
-  }, 5000)
+    console.log('A request was sent to the API')
+  }, 60000)
 });

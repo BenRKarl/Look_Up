@@ -7,15 +7,15 @@ class Astronomy
 
   def initialize(params)
     @options = { query: {
-        appid: Astronomy_Key,
-        appsecret: Astronomy_Secret,
-        date: params[:date],
-        time: params[:time],
-        lat: params[:lat],
-        lng: params[:lng],
-        tz: params[:tz],
-        ds: false
-      }}
+      appid: Astronomy_Key,
+      appsecret: Astronomy_Secret,
+      date: params[:date],
+      time: params[:time],
+      lat: '0,0,0',
+      lng: '0,0,0',
+      tz: 0,
+      ds: false
+    }}
   end
 
   def almanac

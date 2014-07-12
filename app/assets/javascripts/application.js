@@ -20,6 +20,9 @@
 //= require planetData
 //= require sendUserInfo
 //= require dateTime
+//= require d3.min
+//= require topojson.v1.min
+//= require mapScripts
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

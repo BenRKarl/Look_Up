@@ -32,20 +32,21 @@ function resetPlanets(planetArray){
   thePlanets.set(planetArray);
 }
 
-function getPlanets(date, time, lat, lng, tz){
+function getPlanets(date, time){
   $.ajax({
     url: '/astronomy',
     dataType: 'json',
     method: 'post',
     data: {
             date: date,
-            time: time,
-            lat: lat,
-            lng: lng,
-            tz: tz
+            time: time
+            // lat: lat,
+            // lng: lng,
+            // tz: tz
           },
     success: function(response){
       var data = response.data;
+      console.log('Mars ra: ' + data.mars.ra + ' da: ' + data.mars.dec);
       var planetArray = assignPlanetNames(data);
       if (thePlanets.isEmpty()) {
         initiatePlanets(planetArray);
