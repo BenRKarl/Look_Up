@@ -84,16 +84,7 @@ function draw(topo) {
         tooltip.classed("hidden", true);
       });
 
-
-  //EXAMPLE: adding some capitals from external CSV file
-  // d3.csv("country-capitals.csv", function(err, capitals) {
-
-  //   capitals.forEach(function(i){
-  //     addpoint(i.CapitalLongitude, i.CapitalLatitude, i.CapitalName );
-  //   });
-
-  // });
-
+//****** ADDS USERS CURRENT LOCATION
 }
 
 

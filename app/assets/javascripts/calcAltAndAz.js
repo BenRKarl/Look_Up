@@ -15,36 +15,42 @@ function compute()
     var dtg_minute  = parseInt(calc.dtg_minute.value, 10);
     var dtg_second  = parseInt(calc.dtg_second.value, 10);
 
-    if (isNaN(dec_degrees)||(Math.abs(dec_degrees) >=  90)||
-        isNaN(dec_minutes)||(dec_minutes < 0)||(dec_minutes >=  60)||
-        isNaN(ra_hours)   ||(ra_hours    < 0)||(ra_hours    >=  24)||
-        isNaN(ra_minutes) ||(ra_minutes  < 0)||(ra_minutes  >=  60))
-    {
-        window.alert("Invalid Object data!");
-        return;
-    }
+    // if (isNaN(dec_degrees)||(Math.abs(dec_degrees) >=  90)||
+    //     isNaN(dec_minutes)||(dec_minutes < 0)||(dec_minutes >=  60)||
+    //     isNaN(ra_hours)   ||(ra_hours    < 0)||(ra_hours    >=  24)||
+    //     isNaN(ra_minutes) ||(ra_minutes  < 0)||(ra_minutes  >=  60))
+    // {
+    //     window.alert("Invalid Object data!");
+    //     return;
+    // }
 
-    if (isNaN(lat_degrees)||(Math.abs(lat_degrees) >=  90)||
-        isNaN(lat_minutes)||(lat_minutes < 0)||(lat_minutes >=  60)||
-        isNaN(lon_degrees)||(Math.abs(lon_degrees) >= 180)||
-        isNaN(lon_minutes)||(lon_minutes < 0)||(lon_minutes >=  60))
-    {
-        window.alert("Invalid Observer data!");
-        return;
-    }
+    // if (isNaN(lat_degrees)||(Math.abs(lat_degrees) >=  90)||
+    //     isNaN(lat_minutes)||(lat_minutes < 0)||(lat_minutes >=  60)||
+    //     isNaN(lon_degrees)||(Math.abs(lon_degrees) >= 180)||
+    //     isNaN(lon_minutes)||(lon_minutes < 0)||(lon_minutes >=  60))
+    // {
+    //     window.alert("Invalid Observer data!");
+    //     return;
+    // }
 
-    var now = new Date(dtg_year, dtg_month - 1, dtg_day, dtg_hour, dtg_minute, dtg_second);
+    // var now = new Date(
+    //                 dtg_year,
+    //                 dtg_month - 1,
+    //                 dtg_day,
+    //                 dtg_hour,
+    //                 dtg_minute,
+    //                 dtg_second);
 
-    if (isNaN(now.getTime())||
-        (dtg_month  < 1)||(dtg_month  >=  13)||
-        (dtg_day    < 1)||(dtg_day    >=  32)||
-        (dtg_hour   < 0)||(dtg_hour   >=  24)||
-        (dtg_minute < 0)||(dtg_minute >=  60)||
-        (dtg_second < 0)||(dtg_second >=  60))
-    {
-        window.alert("Invalid Date/Time data!");
-        return;
-    }
+    // if (isNaN(now.getTime())||
+    //     (dtg_month  < 1)||(dtg_month  >=  13)||
+    //     (dtg_day    < 1)||(dtg_day    >=  32)||
+    //     (dtg_hour   < 0)||(dtg_hour   >=  24)||
+    //     (dtg_minute < 0)||(dtg_minute >=  60)||
+    //     (dtg_second < 0)||(dtg_second >=  60))
+    // {
+    //     window.alert("Invalid Date/Time data!");
+    //     return;
+    // }
 
     var ra  = ra2real( ra_hours, ra_minutes );
     var dec = dms2real( dec_degrees, dec_minutes );

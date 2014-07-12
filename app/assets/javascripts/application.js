@@ -19,9 +19,9 @@
 //= require backbone/collections/planetCollection
 //= require backbone/views/planets/planetView
 //= require backbone/views/planets/planetListView
-//= require planetData
+//= require api_logic/planetData
+//= require api_logic/dateTime
 //= require sendUserInfo
-//= require dateTime
 //= require mapScripts
 //= require calcAltAndAz
 //= require jquery_ujs

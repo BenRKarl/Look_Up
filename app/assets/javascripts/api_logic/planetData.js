@@ -1,4 +1,4 @@
-function modifyPlanetAttributes(data){
+function assignPlanetNames(data){
   var mercury = data.mercury;
   var venus   = data.venus;
   var mars    = data.mars;
@@ -9,20 +9,7 @@ function modifyPlanetAttributes(data){
   mars.name     = 'Mars'
   jupiter.name  = 'Jupiter'
   saturn.name   = 'Saturn'
-  modifyRA(mercury);
-  modifyRA(venus);
-  modifyRA(mars);
-  modifyRA(jupiter);
-  modifyRA(saturn);
   return [mercury, venus, mars, jupiter, saturn];
-}
-
-function modifyRA(planetObj){
-  var raArray = [];
-  var ra = planetObj.ra;
-  raArray.push(parseInt(ra[0] + ra[1]))
-  raArray.push(parseInt(ra[4] + ra[5]))
-  planetObj.ra = raArray;
 }
 
 function initiatePlanets(planetArray){
@@ -57,7 +44,7 @@ function getPlanets(date, time){
     success: function(response){
       var data = response.data;
       console.log('Mars ra: ' + data.mars.ra + ' da: ' + data.mars.dec);
-      var planetArray = modifyPlanetAttributes(data);
+      var planetArray = assignPlanetNames(data);
       if (thePlanets.isEmpty()) {
         initiatePlanets(planetArray);
       } else {
