@@ -86,13 +86,13 @@ function draw(topo) {
 
 
   //EXAMPLE: adding some capitals from external CSV file
-  d3.csv("country-capitals.csv", function(err, capitals) {
+  // d3.csv("country-capitals.csv", function(err, capitals) {
 
-    capitals.forEach(function(i){
-      addpoint(i.CapitalLongitude, i.CapitalLatitude, i.CapitalName );
-    });
+  //   capitals.forEach(function(i){
+  //     addpoint(i.CapitalLongitude, i.CapitalLatitude, i.CapitalName );
+  //   });
 
-  });
+  // });
 
 }
 

@@ -8,11 +8,7 @@ $(function(){
     collection: thePlanets
   });
 
-  navigator.geolocation.sendUserInfo();
-  console.log('A request was sent to the API')
+  navigator.geolocation.getUserInfo();
+  console.log('The user\'s info was gotten')
 
-  setInterval(function(){
-    navigator.geolocation.sendUserInfo();
-    console.log('A request was sent to the API')
-  }, 60000)
 });
