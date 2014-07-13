@@ -30,10 +30,26 @@ body {
   stroke-width: .5px;
 }
 
-.planet-point {
+.user-point {
+  fill: blue;
+}
+
+.mercury {
+  fill: gray;
+}
+
+.venus {
+  fill: yellow;
+}
+
+.mars {
   fill: red;
 }
 
-.user-point {
-  fill: blue;
+.jupiter {
+  fill: orange;
+}
+
+.saturn {
+  fill: green;
 }

@@ -1,3 +1,13 @@
+function findLongitude(rightAscension){
+  var hourInt = rightAscension[0] + (rightAscension[1]/60);
+  var angle = hourInt * 15;
+  if (angle > 180){
+    return angle - 360;
+  } else {
+    return angle;
+  }
+};
+
 function modifyPlanetAttributes(data){
   var mercury = data.mercury;
   var venus   = data.venus;

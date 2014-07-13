@@ -1,29 +1,32 @@
 var thePlanets = new LookUp.Collections.PlanetCollection();
-
 var rightNow = new Date();
 var date = rightNow.formattedDate();
 var time = rightNow.formattedTime();
+var userLat;
+var userLon;
+
 
 $(function(){
   renderGlobe();
   navigator.geolocation.sendUserInfo();
-
   var planetListView = new LookUp.Views.PlanetListView({
     el: $('.planet-list'),
     collection: thePlanets
   });
 
-
-
-
-
-  //test array of sample alts and az. format is [ALT, AX]
-  var planetData = [ [115, -43], [117, -42], [34, 109], [111, 14], [110, 15] ];
-  var userData = [[-75, 43]];
-
   setTimeout(function(){
-    appendPoints(planetData, 'planet-point', 5);
-  }, 2000);
+    var planetsArray = thePlanets.models;
+    var mercury = planetsArray[0].attributes;
+    var venus = planetsArray[1].attributes;
+    var mars = planetsArray[2].attributes;
+    var jupiter = planetsArray[3].attributes;
+    var saturn = planetsArray[4].attributes;
+    appendPoints([[findLongitude(mercury.ra), mercury.dec]], 'mercury', 5)
+    appendPoints([[findLongitude(venus.ra), venus.dec]], 'venus', 6)
+    appendPoints([[findLongitude(mars.ra), mars.dec]], 'mars', 6)
+    appendPoints([[findLongitude(jupiter.ra), jupiter.dec]], 'jupiter', 15)
+    appendPoints([[findLongitude(saturn.ra), saturn.dec]], 'saturn', 10)
+  }, 5000)
 
 
 });

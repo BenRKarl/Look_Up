@@ -19,6 +19,8 @@ navigator.geolocation.sendUserInfo = function(){
   function success(pos) {
     var rightNow = new Date();
     var crd = pos.coords;
+    userLat = crd.latitude;
+    userLon = crd.longitude;
     var lng = formatCoord(crd.longitude);
     var lat = formatCoord(crd.latitude);
     var date = rightNow.formattedDate();
