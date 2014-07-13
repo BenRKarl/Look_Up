@@ -11,9 +11,9 @@ class Astronomy
       appsecret: Astronomy_Secret,
       date: params[:date],
       time: params[:time],
-      lat: '0,0,0',
-      lng: '0,0,0',
-      tz: 0,
+      lat: params[:lat],
+      lng: params[:lng],
+      tz: params[:tz],
       ds: false
     }}
   end

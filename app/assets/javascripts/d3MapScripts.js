@@ -7,8 +7,15 @@ function renderGlobe(){
       .translate([width / 2, height / 2])
       .clipAngle(90);
 
-  var path = d3.geo.path()
-      .projection(projection);
+  window.path = d3.geo.path()
+      .projection(projection)
+      .pointRadius(function(d){
+        return d.radius
+      })
+
+  window.svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height);
 
   var λ = d3.scale.linear()
       .domain([0, width])
@@ -17,10 +24,6 @@ function renderGlobe(){
   var φ = d3.scale.linear()
       .domain([0, height])
       .range([90, -90]);
-
-  window.svg = d3.select("body").append("svg")
-      .attr("width", width)
-      .attr("height", height);
 
   svg.on("mousemove", function() {
     var p = d3.mouse(this);
@@ -39,14 +42,14 @@ function renderGlobe(){
   });
 }
 
-function appendPlanetPoints(data){
-  window.svg.selectAll('circle')
+function appendPoints(data, pointClass, radius){
+  window.svg.selectAll('path.point')
             .data(data)
             .enter()
-            .append('circle')
-            .attr('r', 5)
-            .attr('class', 'planet-point')
-            .attr('transform', function(d){
-              return 'translate(' + window.projection(d) + ')';
-            });
+            .append('path')
+            .datum(function(d){
+              return {'type': 'Point', 'coordinates': d, 'radius': radius}
+            })
+            .attr('class', pointClass)
+            .attr('d', window.path)
 }

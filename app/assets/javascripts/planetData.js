@@ -45,18 +45,21 @@ function resetPlanets(planetArray){
   thePlanets.set(planetArray);
 }
 
-function getPlanets(date, time){
+function getPlanets(lat, lng, date, time, tz){
   $.ajax({
     url: '/astronomy',
     dataType: 'json',
     method: 'post',
     data: {
+            lat:  lat,
+            lng:  lng,
             date: date,
-            time: time
+            time: time,
+            tz:   tz
           },
     success: function(response){
       var data = response.data;
-      console.log('Mars ra: ' + data.mars.ra + ' da: ' + data.mars.dec);
+      console.log(data)
       var planetArray = modifyPlanetAttributes(data);
       if (thePlanets.isEmpty()) {
         initiatePlanets(planetArray);
