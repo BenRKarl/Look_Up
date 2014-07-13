@@ -59,7 +59,6 @@ function getPlanets(lat, lng, date, time, tz){
           },
     success: function(response){
       var data = response.data;
-      console.log(data)
       var planetArray = modifyPlanetAttributes(data);
       if (thePlanets.isEmpty()) {
         initiatePlanets(planetArray);

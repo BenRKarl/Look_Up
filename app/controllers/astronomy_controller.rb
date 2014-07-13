@@ -8,6 +8,4 @@ class AstronomyController < ApplicationController
     end
   end
 
-
-
 end

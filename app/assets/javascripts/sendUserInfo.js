@@ -25,7 +25,7 @@ navigator.geolocation.sendUserInfo = function(){
     var time = rightNow.formattedTime();
     var tz = rightNow.getTimezoneOffset() / 60;
     getPlanets(lat, lng, date, time, tz);
-    appendPoints([[crd.longitude, crd.latitude]], 'user-point', 25);
+    appendPoints([[crd.longitude, crd.latitude]], 'user-point', 7); //function renders users location on globe
   };
   return this.getCurrentPosition(success, error, options);
 }

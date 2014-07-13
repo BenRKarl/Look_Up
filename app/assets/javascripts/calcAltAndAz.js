@@ -1,19 +1,5 @@
 function compute()
 {
-    var dec_degrees = parseInt(calc.dec_degrees.value, 10);
-    var dec_minutes = parseInt(calc.dec_minutes.value, 10);
-    var ra_hours    = parseInt(calc.ra_hours.value, 10);
-    var ra_minutes  = parseInt(calc.ra_minutes.value, 10);
-    var lat_degrees = parseInt(calc.lat_degrees.value, 10);
-    var lat_minutes = parseInt(calc.lat_minutes.value, 10);
-    var lon_degrees = parseInt(calc.lon_degrees.value, 10);
-    var lon_minutes = parseInt(calc.lon_minutes.value, 10);
-    var dtg_year    = parseInt(calc.dtg_year.value, 10);
-    var dtg_month   = parseInt(calc.dtg_month.value, 10);
-    var dtg_day     = parseInt(calc.dtg_day.value, 10);
-    var dtg_hour    = parseInt(calc.dtg_hour.value, 10);
-    var dtg_minute  = parseInt(calc.dtg_minute.value, 10);
-    var dtg_second  = parseInt(calc.dtg_second.value, 10);
 
     var ra  = ra2real( ra_hours, ra_minutes );
     var dec = dms2real( dec_degrees, dec_minutes );
