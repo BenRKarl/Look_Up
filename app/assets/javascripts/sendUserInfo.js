@@ -25,7 +25,6 @@ navigator.geolocation.renderUserLocation = function(){
     var date = rightNow.formattedDate();
     var time = rightNow.formattedTime();
     var tz = rightNow.getTimezoneOffset() / 60;
-    addpoint(lat, lng, "You are here")
   };
   return this.getCurrentPosition(success, error, options);
 }

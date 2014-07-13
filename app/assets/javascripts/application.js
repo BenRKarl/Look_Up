@@ -13,7 +13,7 @@
 //= require jquery
 //= require libraries/underscore
 //= require libraries/backbone
-//= require libraries/d3.min
+//= require d3
 //= require libraries/topojson.v1.min
 //= require backbone/models/planet
 //= require backbone/collections/planetCollection
@@ -21,8 +21,8 @@
 //= require backbone/views/planets/planetListView
 //= require api_logic/planetData
 //= require api_logic/dateTime
+//= require d3MapScripts
 //= require sendUserInfo
-//= require mapScripts
 //= require calcAltAndAz
 //= require jquery_ujs
 //= require turbolinks

@@ -5,32 +5,26 @@ var date = rightNow.formattedDate();
 var time = rightNow.formattedTime();
 
 $(function(){
-  console.log('My celestial body is ready...');
 
   var planetListView = new LookUp.Views.PlanetListView({
     el: $('.planet-list'),
     collection: thePlanets
   });
 
+  //makes AJAX call to server
   getPlanets(date, time);
   console.log("Current date and time was sent to API")
 
-setTimeout(function(){
-  console.log('UTC Time' + rightNow);
-  console.log('Mercury: ')
-  console.log(thePlanets.models[0].attributes.ra)
-  console.log(thePlanets.models[0].attributes.dec)
-  console.log('Venus: ')
-  console.log(thePlanets.models[1].attributes.ra)
-  console.log(thePlanets.models[1].attributes.dec)
-  console.log('Mars: ')
-  console.log(thePlanets.models[2].attributes.ra)
-  console.log(thePlanets.models[2].attributes.dec)
-  console.log('Jupiter: ')
-  console.log(thePlanets.models[3].attributes.ra)
-  console.log(thePlanets.models[3].attributes.dec)
-  console.log('Saturn: ')
-  console.log(thePlanets.models[4].attributes.ra)
-  console.log(thePlanets.models[4].attributes.dec)
-}, 5000)
+  //Calls function that renders globe on screen
+  renderGlobe();
+
+
+  //test array of sample alts and az. format is [ALT, AX]
+  var planetData = [[-75, 43], [115, -43], [117, -42], [34, 109], [111, 14], [110, 15] ];
+
+  setTimeout(function(){
+    appendPlanetPoints(planetData);
+  }, 2000);
+
+
 });
