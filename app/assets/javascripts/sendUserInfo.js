@@ -7,6 +7,7 @@ navigator.geolocation.renderUserLocation = function(){
     console.warn('ERROR(' + err.code + '): ' + err.message);
   };
 
+  //WAS USED TO FORMAT USERS LAT/LON FOR API QUERY STRING
   // function formatCoord(coord){
   //   var coord = coord.toString();
   //   if (coord[0] === '-'){
