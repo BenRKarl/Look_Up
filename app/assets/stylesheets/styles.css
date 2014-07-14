@@ -1,6 +1,8 @@
 body {
-  background: #fcfcfa;
+  background-image:url('/assets/stardust_@2X.png');
   text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: gray;
 }
 
 .stroke {
@@ -24,6 +26,10 @@ body {
   fill: #222;
 }
 
+.ocean {
+  fill: white;
+}
+
 .boundary {
   fill: none;
   stroke: #fff;
@@ -36,20 +42,25 @@ body {
 
 .mercury {
   fill: gray;
+  z-index: 5;
 }
 
 .venus {
   fill: yellow;
+  z-index: 3;
 }
 
 .mars {
   fill: red;
+  z-index: 0;
 }
 
 .jupiter {
   fill: orange;
+  z-index: 1;
 }
 
 .saturn {
   fill: green;
+  z-index: 2;
 }

@@ -10,6 +10,7 @@ LookUp.Models.Planet = Backbone.Model.extend({
     rise:     "",
     set:      "",
     size:     "",
-    transit:  ""
+    transit:  "",
+    position: [[0, 0]],
   }
 })

@@ -8,31 +8,36 @@ function findLongitude(rightAscension){
   }
 };
 
-function modifyPlanetAttributes(data){
-  var mercury = data.mercury;
-  var venus   = data.venus;
-  var mars    = data.mars;
-  var jupiter = data.jupiter;
-  var saturn  = data.saturn;
-  mercury.name  = 'Mercury'
-  venus.name    = 'Venus'
-  mars.name     = 'Mars'
-  jupiter.name  = 'Jupiter'
-  saturn.name   = 'Saturn'
-  modifyRA(mercury);
-  modifyRA(venus);
-  modifyRA(mars);
-  modifyRA(jupiter);
-  modifyRA(saturn);
-  return [mercury, venus, mars, jupiter, saturn];
-}
-
 function modifyRA(planetObj){
   var raArray = [];
   var ra = planetObj.ra;
   raArray.push(parseInt(ra[0] + ra[1]))
   raArray.push(parseInt(ra[4] + ra[5]))
   planetObj.ra = raArray;
+}
+
+function modifyPlanetAttributes(data){
+  var mercury = data.mercury;
+  var venus   = data.venus;
+  var mars    = data.mars;
+  var jupiter = data.jupiter;
+  var saturn  = data.saturn;
+  mercury.name  = 'mercury'
+  venus.name    = 'venus'
+  mars.name     = 'mars'
+  jupiter.name  = 'jupiter'
+  saturn.name   = 'saturn'
+  modifyRA(mercury);
+  modifyRA(venus);
+  modifyRA(mars);
+  modifyRA(jupiter);
+  modifyRA(saturn);
+  mercury.position  = [[findLongitude(mercury.ra), mercury.dec]];
+  venus.position    = [[findLongitude(venus.ra), venus.dec]];
+  mars.position     = [[findLongitude(mars.ra), mars.dec]];
+  jupiter.position  = [[findLongitude(jupiter.ra), jupiter.dec]];
+  saturn.position   = [[findLongitude(saturn.ra), saturn.dec]];
+  return [mercury, venus, mars, jupiter, saturn];
 }
 
 function initiatePlanets(planetArray){
@@ -46,7 +51,8 @@ function initiatePlanets(planetArray){
       rise: planet.rise,
       set: planet.set,
       size: planet.size,
-      transit: planet.transit
+      transit: planet.transit,
+      position: planet.position
     });
   });
 }

@@ -19,7 +19,7 @@ function renderGlobe(){
 
   var λ = d3.scale.linear()
       .domain([0, width])
-      .range([-180, 180]);
+      .range([-180, 179]);
 
   var φ = d3.scale.linear()
       .domain([0, height])
@@ -27,7 +27,7 @@ function renderGlobe(){
 
   svg.on("mousemove", function() {
     var p = d3.mouse(this);
-    projection.rotate([λ(p[0]), φ(p[1])]);
+    projection.rotate([λ(p[0]), 0]);
     svg.selectAll("path").attr("d", path);
     svg.selectAll('circle').attr('transform', function(d){
             return 'translate(' + window.projection(d) + ')';
@@ -36,9 +36,14 @@ function renderGlobe(){
 
   d3.json("world-110m.json", function(error, world) {
     svg.append("path")
+        .datum(topojson.feature(world, world.objects.ocean))
+        .attr("class", "ocean")
+        .attr("d", path)
+
+    svg.append("path")
         .datum(topojson.feature(world, world.objects.land))
         .attr("class", "land")
-        .attr("d", path);
+        .attr("d", path)
   });
 }
 
