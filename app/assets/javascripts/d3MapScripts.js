@@ -31,7 +31,8 @@ function renderGlobe(){
     setInterval(function(){
       var angle = velocity * (Date.now() - then);
       projection.rotate([angle, 0, 0])
-      svg.selectAll('path').attr('d', path.projection(projection));
+      svg.selectAll('path.point')
+        .attr('d', path.projection(projection));
     })
   })
 

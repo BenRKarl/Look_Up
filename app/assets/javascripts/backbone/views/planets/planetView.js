@@ -6,7 +6,7 @@ LookUp.Views.PlanetView = Backbone.View.extend({
   },
   render: function(){
     planet = this.model.attributes;
-    appendPoints(planet.position, planet.name, planet.size);
+    appendPoints(planet.position, planet.name.toLowerCase(), planet.size);
     return this;
   }
 });

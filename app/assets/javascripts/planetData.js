@@ -22,11 +22,11 @@ function modifyPlanetAttributes(data){
   var mars    = data.mars;
   var jupiter = data.jupiter;
   var saturn  = data.saturn;
-  mercury.name  = 'mercury'
-  venus.name    = 'venus'
-  mars.name     = 'mars'
-  jupiter.name  = 'jupiter'
-  saturn.name   = 'saturn'
+  mercury.name  = 'Mercury'
+  venus.name    = 'Venus'
+  mars.name     = 'Mars'
+  jupiter.name  = 'Jupiter'
+  saturn.name   = 'Saturn'
   modifyRA(mercury);
   modifyRA(venus);
   modifyRA(mars);

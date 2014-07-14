@@ -5,8 +5,8 @@ var time = rightNow.formattedTime();
 var userLat;
 var userLon;
 
-
 $(function(){
+
   renderGlobe();
   navigator.geolocation.sendUserInfo();
 
@@ -14,8 +14,6 @@ $(function(){
     el: $('.planet-list'),
     collection: thePlanets
   });
-
-
 
 });
 
