@@ -1,6 +1,8 @@
 function renderGlobe(){
   var width   = 960,
-      height  = 500;
+      height  = 500,
+      velocity = .001,
+      then = Date.now();
 
   window.projection = d3.geo.orthographic()
       .scale(250)
@@ -25,14 +27,22 @@ function renderGlobe(){
       .domain([0, height])
       .range([90, -90]);
 
-  svg.on("mousemove", function() {
-    var p = d3.mouse(this);
-    projection.rotate([λ(p[0]), 0]);
-    svg.selectAll("path").attr("d", path);
-    svg.selectAll('circle').attr('transform', function(d){
-            return 'translate(' + window.projection(d) + ')';
-          });
-  });
+  d3.timer(function(){
+    setInterval(function(){
+      var angle = velocity * (Date.now() - then);
+      projection.rotate([angle, 0, 0])
+      svg.selectAll('path').attr('d', path.projection(projection));
+    })
+  })
+
+  // svg.on("mousemove", function() {
+  //   var p = d3.mouse(this);
+  //   projection.rotate([λ(p[0]), 0]);
+  //   svg.selectAll("path").attr("d", path);
+  //   svg.selectAll('circle').attr('transform', function(d){
+  //           return 'translate(' + window.projection(d) + ')';
+  //         });
+  // });
 
   d3.json("world-110m.json", function(error, world) {
     svg.append("path")
