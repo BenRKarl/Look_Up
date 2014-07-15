@@ -36,31 +36,31 @@ body {
   stroke-width: .5px;
 }
 
-.user-point {
+#user-point {
   fill: blue;
 }
 
-.mercury {
+#mercury {
   fill: gray;
   z-index: 5;
 }
 
-.venus {
+#venus {
   fill: yellow;
   z-index: 3;
 }
 
-.mars {
+#mars {
   fill: red;
   z-index: 0;
 }
 
-.jupiter {
+#jupiter {
   fill: orange;
   z-index: 1;
 }
 
-.saturn {
+#saturn {
   fill: green;
   z-index: 2;
 }

@@ -1,4 +1,4 @@
-function findLongitude(rightAscension){
+function longitude(rightAscension){
   var hourInt = rightAscension[0] + (rightAscension[1]/60);
   var angle = hourInt * 15;
   if (angle > 180){
@@ -7,6 +7,14 @@ function findLongitude(rightAscension){
     return angle;
   }
 };
+
+function modifyTransit(planetObj){
+  var transitArray = [];
+  var transit = planetObj.transit;
+  transitArray.push(parseInt(transit[0] + transit[1]))
+  transitArray.push(parseInt(transit[3] + transit[4]))
+  planetObj.transit = transitArray;
+}
 
 function modifyRA(planetObj){
   var raArray = [];
@@ -32,11 +40,16 @@ function modifyPlanetAttributes(data){
   modifyRA(mars);
   modifyRA(jupiter);
   modifyRA(saturn);
-  mercury.position  = [[findLongitude(mercury.ra), mercury.dec]];
-  venus.position    = [[findLongitude(venus.ra), venus.dec]];
-  mars.position     = [[findLongitude(mars.ra), mars.dec]];
-  jupiter.position  = [[findLongitude(jupiter.ra), jupiter.dec]];
-  saturn.position   = [[findLongitude(saturn.ra), saturn.dec]];
+  modifyTransit(mercury);
+  modifyTransit(venus);
+  modifyTransit(mars);
+  modifyTransit(jupiter);
+  modifyTransit(saturn);
+  mercury.position  = [[longitude(mercury.transit), mercury.dec]];
+  venus.position    = [[longitude(venus.transit), venus.dec]];
+  mars.position     = [[longitude(mars.transit), mars.dec]];
+  jupiter.position  = [[longitude(jupiter.transit), jupiter.dec]];
+  saturn.position   = [[longitude(saturn.transit), saturn.dec]];
   return [mercury, venus, mars, jupiter, saturn];
 }
 
@@ -77,9 +90,9 @@ function getPlanets(lat, lng, date, time, tz){
       var data = response.data;
       var planetArray = modifyPlanetAttributes(data);
       if (thePlanets.isEmpty()) {
-        initiatePlanets(planetArray);
+        thePlanets.add(planetArray);
       } else {
-        resetPlanets(planetArray);
+        thePlanets.set(planetArray);
       }
     }
   });

@@ -1,7 +1,8 @@
 function renderGlobe(){
   var width   = 960,
       height  = 500,
-      velocity = .001,
+      velocityFast = .01,
+      velocitySlow = .001,
       then = Date.now();
 
   window.projection = d3.geo.orthographic()
@@ -15,35 +16,44 @@ function renderGlobe(){
         return d.radius
       })
 
+  window.skyProjection = d3.geo.orthographic()
+      .scale(250)
+      .translate([width / 2, height / 2])
+      .clipAngle(90);
+
+  window.skyPath = d3.geo.path()
+      .projection(skyProjection)
+      .pointRadius(function(d){
+        return d.radius
+      })
+
   window.svg = d3.select("body").append("svg")
       .attr("width", width)
       .attr("height", height);
 
   var λ = d3.scale.linear()
       .domain([0, width])
-      .range([-180, 179]);
+      .range([-180, 180]);
 
   var φ = d3.scale.linear()
       .domain([0, height])
       .range([90, -90]);
 
-  d3.timer(function(){
-    setInterval(function(){
-      var angle = velocity * (Date.now() - then);
-      projection.rotate([angle, 0, 0])
-      svg.selectAll('path.point')
-        .attr('d', path.projection(projection));
-    })
-  })
+  var γ = d3.scale.linear()
+      .domain([0, height])
+      .range([90, -90]);
 
-  // svg.on("mousemove", function() {
-  //   var p = d3.mouse(this);
-  //   projection.rotate([λ(p[0]), 0]);
-  //   svg.selectAll("path").attr("d", path);
-  //   svg.selectAll('circle').attr('transform', function(d){
-  //           return 'translate(' + window.projection(d) + ')';
-  //         });
-  // });
+  d3.timer(function(){
+      var planetAngle = velocityFast * (Date.now() - then);
+      var earthAngle = velocitySlow * (Date.now() - then);
+      projection.rotate([earthAngle, 0, 0])
+      svg.selectAll('path')
+        .attr('d', path.projection(projection))
+
+      skyProjection.rotate([planetAngle, 15, 0])
+      svg.selectAll('path.planet')
+        .attr('d', skyPath.projection(skyProjection))
+  })
 
   d3.json("world-110m.json", function(error, world) {
     svg.append("path")
@@ -56,9 +66,10 @@ function renderGlobe(){
         .attr("class", "land")
         .attr("d", path)
   });
+
 }
 
-function appendPoints(data, pointClass, radius){
+function appendPoints(data, pointClass, pointId, radius){
   window.svg.selectAll('path.point')
             .data(data)
             .enter()
@@ -67,5 +78,6 @@ function appendPoints(data, pointClass, radius){
               return {'type': 'Point', 'coordinates': d, 'radius': radius}
             })
             .attr('class', pointClass)
-            .attr('d', window.path)
+            .attr('id', pointId)
+            .attr('d', window.skyPath)
 }
