@@ -1,7 +1,7 @@
 function renderGlobe(){
   var width   = 960,
       height  = 500,
-      velocity = .001,
+      velocity = .01,
       then = Date.now();
 
   window.projection = d3.geo.orthographic()
