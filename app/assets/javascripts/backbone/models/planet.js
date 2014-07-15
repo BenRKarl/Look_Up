@@ -11,7 +11,7 @@ LookUp.Models.Planet = Backbone.Model.extend({
     set:      "",
     size:     "",
     transit:  "",
-    position: [[0, 0]],
+    position: [0, 0],
   },
   incrementLongitude: function(){
     planetLong = this.attributes.position[0][0];

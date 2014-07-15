@@ -45,33 +45,12 @@ function modifyPlanetAttributes(data){
   modifyTransit(mars);
   modifyTransit(jupiter);
   modifyTransit(saturn);
-  mercury.position  = [[longitude(mercury.transit), mercury.dec]];
-  venus.position    = [[longitude(venus.transit), venus.dec]];
-  mars.position     = [[longitude(mars.transit), mars.dec]];
-  jupiter.position  = [[longitude(jupiter.transit), jupiter.dec]];
-  saturn.position   = [[longitude(saturn.transit), saturn.dec]];
+  mercury.position  = [longitude(mercury.transit), mercury.dec];
+  venus.position    = [longitude(venus.transit), venus.dec];
+  mars.position     = [longitude(mars.transit), mars.dec];
+  jupiter.position  = [longitude(jupiter.transit), jupiter.dec];
+  saturn.position   = [longitude(saturn.transit), saturn.dec];
   return [mercury, venus, mars, jupiter, saturn];
-}
-
-function initiatePlanets(planetArray){
-  _.each(planetArray, function(planet){
-    thePlanets.create({
-      name: planet.name,
-      dec: planet.dec,
-      mag: planet.mag,
-      phase: planet.phase,
-      ra: planet.ra,
-      rise: planet.rise,
-      set: planet.set,
-      size: planet.size,
-      transit: planet.transit,
-      position: planet.position
-    });
-  });
-}
-
-function resetPlanets(planetArray){
-  thePlanets.set(planetArray);
 }
 
 function getPlanets(lat, lng, date, time, tz){
