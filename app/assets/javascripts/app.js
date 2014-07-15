@@ -11,7 +11,7 @@ $(function(){
   navigator.geolocation.sendUserInfo();
 
   var planetListView = new LookUp.Views.PlanetListView({
-    el: $('.planet-list'),
+    el: $('.key'),
     collection: thePlanets
   });
 

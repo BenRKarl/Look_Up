@@ -5,6 +5,10 @@ body {
   color: gray;
 }
 
+.key {
+  display: inline-block;
+}
+
 .stroke {
   fill: none;
   stroke: #000;

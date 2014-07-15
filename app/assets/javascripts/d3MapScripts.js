@@ -50,7 +50,7 @@ function renderGlobe(){
       svg.selectAll('path')
         .attr('d', path.projection(projection))
 
-      skyProjection.rotate([planetAngle, 15, 0])
+      skyProjection.rotate([planetAngle, -15, 0])
       svg.selectAll('path.planet')
         .attr('d', skyPath.projection(skyProjection))
   })
