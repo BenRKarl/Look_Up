@@ -7,6 +7,47 @@ body {
 
 .key {
   display: inline-block;
+  text-align: left;
+  float: left;
+  z-index: 2;
+  margin-right: -100%;
+}
+
+.key-item {
+  width: 10px;
+}
+
+li {
+  font-size: 42px;
+}
+
+span {
+  font-size: 18px;
+  color: gray;
+}
+
+li.user-li {
+  color: blue;
+}
+
+li.mercury-li {
+  color: gray;
+}
+
+li.venus-li {
+  color: yellow;
+}
+
+li.mars-li {
+  color: red;
+}
+
+li.jupiter-li {
+  color: orange;
+}
+
+li.saturn-li {
+  color: green;
 }
 
 .stroke {

@@ -1,5 +1,5 @@
 function renderGlobe(){
-  var width   = 960,
+  var width   = 600,
       height  = 500,
       velocity = .01,
       then = Date.now();
@@ -62,12 +62,6 @@ function renderGlobe(){
   var φ = d3.scale.linear()
       .domain([0, height])
       .range([90, -90]);
-
-  svg.on("mousemove", function() {
-    var p = d3.mouse(this);
-    projection.rotate([λ(p[0]), 0]);
-    svg.selectAll("path").attr("d", path);
-  });
 
 }
 
