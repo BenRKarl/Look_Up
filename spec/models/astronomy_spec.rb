@@ -12,7 +12,7 @@ RSpec.describe Astronomy, :type => :model do
     astronomy = Astronomy.new({this: 'that'})
     actual = astronomy.instance_variable_names[0]
     expected = '@options'
-    expect(actual). to eq(expected)
+    expect(actual).to eq(expected)
   end
 
   it 'has an instance variable that is a hash' do
@@ -21,6 +21,10 @@ RSpec.describe Astronomy, :type => :model do
     expect(actual.class).to eq(Hash)
   end
 
-
+  it 'options variable contains a :query key' do
+    astronomy = Astronomy.new({this: 'that'})
+    actual = astronomy.instance_values['options'].has_key?(:query)
+    expect(actual).to be true
+  end
 
 end
