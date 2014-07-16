@@ -9,4 +9,10 @@ RSpec.describe Astronomy, :type => :model do
     expect(actual). to eq(expected)
   end
 
+  it 'has one instance variable' do
+    astronomy = Astronomy.new({this: 'is in the @options int. variable'})
+    actual = astronomy.instance_variables.count
+    expect(actual). to eq(1)
+  end
+
 end
