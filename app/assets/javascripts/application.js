@@ -23,7 +23,6 @@
 //= require api_logic/dateTime
 //= require d3MapScripts
 //= require sendUserInfo
-//= require calcAltAndAz
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
