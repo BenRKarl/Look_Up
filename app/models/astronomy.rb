@@ -2,13 +2,10 @@ class Astronomy
   include HTTParty
   base_uri 'http://www.astronomyapi.com/api_v1'
 
-  Astronomy_Key = ENV.fetch('ASTRONOMY_KEY')
-  Astronomy_Secret = ENV.fetch('ASTRONOMY_SECRET')
-
   def initialize(params)
     @options = { query: {
-      appid: Astronomy_Key,
-      appsecret: Astronomy_Secret,
+      appid: astronomy_key,
+      appsecret: astronomy_secret,
       date: params[:date],
       time: params[:time],
       lat: params[:lat],
@@ -20,5 +17,15 @@ class Astronomy
 
   def almanac
     self.class.get('/almanac', @options)
+  end
+  
+  private
+  
+  def astronomy_key
+    ENV.fetch('ASTRONOMY_KEY')
+  end
+  
+  def astronomy_secret
+    ENV.fetch('ASTRONOMY_SECRET')
   end
 end
